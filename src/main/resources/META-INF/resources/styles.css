@@ -1,1 +1,194 @@
-/* Add your styles here */
+/* Vaadin AI Showcase — layout for the AI views (Aura theme) */
+
+.app-title {
+    font-weight: 600;
+    font-size: 1.125rem;
+    white-space: nowrap;
+}
+
+/* App-wide AI navigation bar in the navbar */
+.ai-nav-bar {
+    flex: 1 1 auto;
+    max-width: 640px;
+    margin-inline: auto;
+    padding-inline-end: var(--vaadin-padding-m, 1rem);
+}
+
+.ai-nav-view__steps {
+    border: 1px solid var(--vaadin-border-color, rgba(0, 0, 0, 0.1));
+    border-radius: var(--vaadin-radius-l, 12px);
+    padding: 0 var(--vaadin-padding-m, 1rem);
+}
+
+@media (max-width: 700px) {
+    .app-title {
+        display: none;
+    }
+}
+
+/* Two columns: AI-driven component left, assistant panel right; stacked on narrow screens */
+.ai-showcase {
+    display: flex;
+    gap: var(--vaadin-gap-m, 1rem);
+    padding: var(--vaadin-padding-m, 1rem);
+    box-sizing: border-box;
+    min-height: 0;
+}
+
+.ai-showcase__main {
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 0;
+}
+
+.ai-panel {
+    flex: 0 0 380px;
+    min-height: 0;
+    border: 1px solid var(--vaadin-border-color, rgba(0, 0, 0, 0.1));
+    border-radius: var(--vaadin-radius-l, 12px);
+    background: var(--aura-surface-color, transparent);
+    box-sizing: border-box;
+}
+
+.ai-panel h3 {
+    margin: 0;
+}
+
+.ai-panel p {
+    margin: 0;
+    color: var(--vaadin-text-color-secondary);
+    font-size: 0.875rem;
+}
+
+.ai-panel__messages {
+    min-height: 120px;
+    width: 100%;
+}
+
+.ai-panel__examples {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+}
+
+.ai-panel__examples vaadin-button {
+    white-space: normal;
+    height: auto;
+    text-align: start;
+    max-width: 100%;
+}
+
+.ai-panel__disabled {
+    color: var(--aura-red);
+    font-size: 0.875rem;
+}
+
+/* Full-page chat: centred column */
+.chat-panel.ai-panel {
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    border: none;
+}
+
+.form-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--vaadin-gap-m, 1rem);
+    overflow: auto;
+}
+
+.form-card h2 {
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+    .ai-showcase {
+        flex-direction: column;
+        height: auto !important;
+    }
+
+    .ai-panel {
+        flex-basis: auto;
+    }
+
+    .ai-showcase__main {
+        min-height: 60vh;
+    }
+}
+
+/* AI Form Filler (Image): receipt next to the form, source-tracking popovers and change log */
+.receipt-showcase__body {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--vaadin-gap-l, 1.5rem);
+    align-items: flex-start;
+}
+
+.receipt-showcase__body > vaadin-form-layout {
+    flex: 1 1 24rem;
+    min-width: 0;
+}
+
+.receipt-panel {
+    flex: 0 0 14rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.receipt-preview {
+    width: 100%;
+    border-radius: var(--vaadin-radius-m, 8px);
+    box-shadow: 0 4px 16px rgb(0 0 0 / 0.15);
+}
+
+.ai-source {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    max-width: 18rem;
+    font-size: var(--aura-font-size-s, 0.875rem);
+}
+
+.ai-confidence {
+    font-weight: var(--aura-font-weight-semibold, 600);
+}
+
+.ai-confidence.high {
+    color: var(--aura-green-text, var(--aura-green));
+}
+
+.ai-confidence.medium {
+    color: var(--aura-orange-text, var(--aura-orange));
+}
+
+.ai-confidence.low {
+    color: var(--aura-red-text, var(--aura-red));
+}
+
+.ai-extract {
+    font-style: italic;
+    color: var(--vaadin-text-color-secondary);
+}
+
+.ai-change-log {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+    font-size: var(--aura-font-size-s, 0.875rem);
+}
+
+.form-card h3 {
+    margin: 0;
+}
+
+.ai-change > span:first-child {
+    font-weight: var(--aura-font-weight-semibold, 600);
+}
+
+.ai-change > span:last-child {
+    color: var(--vaadin-text-color-secondary);
+}
